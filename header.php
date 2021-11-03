@@ -9,7 +9,13 @@ $getNewLaptop = $products->getNewLaptop();
 $getNewHeadphone = $products->getNewHeadphone();
 $getNewWatch = $products->getNewWatch();
 $getNewTV = $products->getNewTV();
+if (isset($_GET['keyword'])) {
+    $keyword = ($_GET['keyword']);
+}
+
 //var_dump($getAllProducts);
+ 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,13 +94,13 @@ $getNewTV = $products->getNewTV();
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
-							<form>
+							<form action="result.php" method="get" >
 								<select class="input-select">
 									<option value="0">All Categories</option>
 									<option value="1">Category 01</option>
 									<option value="1">Category 02</option>
 								</select>
-								<input class="input" placeholder="Search here">
+								<input type="text" name="keyword" class="input" placeholder="Search here">
 								<button class="search-btn">Search</button>
 							</form>
 						</div>

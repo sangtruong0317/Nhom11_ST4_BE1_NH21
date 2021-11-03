@@ -44,6 +44,7 @@ class Product extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
+    //tim kiem theo id
     public function getProductById($id)
     {
         $sql = self::$connection->prepare("SELECT * FROM products WHERE id = ?");
@@ -53,6 +54,7 @@ class Product extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
+    //tim kiem theo tu khoa
     public function search($keyword)
     {
         $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ?");

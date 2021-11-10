@@ -1,4 +1,7 @@
-<?php include "header.php"; ?>
+<?php 
+include "header.php";
+
+ ?>
 <!-- SECTION -->
 <div class="section">
 	<!-- container -->
@@ -63,15 +66,7 @@
 					<!-- section title -->
 					<div class="col-md-12">
 						<div class="section-title">
-							<h3 class="title">New Phone</h3>
-							<div class="section-nav">
-								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-									<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-									<li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-									<li><a data-toggle="tab" href="#tab1">Accessories</a></li>
-								</ul>
-							</div>
+							<h3 class="title">New Phone</h3>						
 						</div>
 					</div>
 					<!-- /section title -->
@@ -142,14 +137,7 @@
 					<div class="col-md-12">
 						<div class="section-title">
 							<h3 class="title">New Laptop</h3>
-							<div class="section-nav">
-								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-									<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-									<li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-									<li><a data-toggle="tab" href="#tab1">Accessories</a></li>
-								</ul>
-							</div>
+							
 						</div>
 					</div>
 					<!-- /section title -->
@@ -160,7 +148,7 @@
 							<div class="products-tabs">
 								<!-- tab -->
 								<div id="tab1" class="tab-pane active">
-									<div class="products-slick" data-nav="#slick-nav-1">
+									<div class="products-slick" data-nav="#slick-nav-2">
 										<?php foreach ($getNewLaptop as $value) {  ?>
 										<!-- product -->
 										<div class="product">
@@ -195,7 +183,7 @@
 										<!-- /product -->
 										<?php } ?>
 									</div>
-									<div id="slick-nav-1" class="products-slick-nav"></div>
+									<div id="slick-nav-2" class="products-slick-nav"></div>
 								</div>
 								<!-- /tab -->
 							</div>
@@ -220,14 +208,7 @@
 					<div class="col-md-12">
 						<div class="section-title">
 							<h3 class="title">New Headphone</h3>
-							<div class="section-nav">
-								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-									<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-									<li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-									<li><a data-toggle="tab" href="#tab1">Accessories</a></li>
-								</ul>
-							</div>
+							
 						</div>
 					</div>
 					<!-- /section title -->
@@ -238,7 +219,7 @@
 							<div class="products-tabs">
 								<!-- tab -->
 								<div id="tab1" class="tab-pane active">
-									<div class="products-slick" data-nav="#slick-nav-1">
+									<div class="products-slick" data-nav="#slick-nav-6">
 										<?php foreach ($getNewHeadphone as $value) {  ?>
 										<!-- product -->
 										<div class="product">
@@ -273,7 +254,7 @@
 										<!-- /product -->
 										<?php } ?>
 									</div>
-									<div id="slick-nav-1" class="products-slick-nav"></div>
+									<div id="slick-nav-6" class="products-slick-nav"></div>
 								</div>
 								<!-- /tab -->
 							</div>
@@ -298,14 +279,7 @@
 					<div class="col-md-12">
 						<div class="section-title">
 							<h3 class="title">New Watch</h3>
-							<div class="section-nav">
-								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-									<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-									<li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-									<li><a data-toggle="tab" href="#tab1">Accessories</a></li>
-								</ul>
-							</div>
+							
 						</div>
 					</div>
 					<!-- /section title -->
@@ -316,7 +290,7 @@
 							<div class="products-tabs">
 								<!-- tab -->
 								<div id="tab1" class="tab-pane active">
-									<div class="products-slick" data-nav="#slick-nav-1">
+									<div class="products-slick" data-nav="#slick-nav-4">
 										<?php foreach ($getNewWatch as $value) {  ?>
 										<!-- product -->
 										<div class="product">
@@ -351,7 +325,7 @@
 										<!-- /product -->
 										<?php } ?>
 									</div>
-									<div id="slick-nav-1" class="products-slick-nav"></div>
+									<div id="slick-nav-4" class="products-slick-nav"></div>
 								</div>
 								<!-- /tab -->
 							</div>
@@ -376,14 +350,7 @@
 					<div class="col-md-12">
 						<div class="section-title">
 							<h3 class="title">New TV</h3>
-							<div class="section-nav">
-								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-									<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-									<li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-									<li><a data-toggle="tab" href="#tab1">Accessories</a></li>
-								</ul>
-							</div>
+							
 						</div>
 					</div>
 					<!-- /section title -->
@@ -394,7 +361,7 @@
 							<div class="products-tabs">
 								<!-- tab -->
 								<div id="tab1" class="tab-pane active">
-									<div class="products-slick" data-nav="#slick-nav-1">
+									<div class="products-slick" data-nav="#slick-nav-5">
 										<?php foreach ($getNewTV as $value) {  ?>
 										<!-- product -->
 										<div class="product">
@@ -429,7 +396,7 @@
 										<!-- /product -->
 										<?php } ?>
 									</div>
-									<div id="slick-nav-1" class="products-slick-nav"></div>
+									<div id="slick-nav-5" class="products-slick-nav"></div>
 								</div>
 								<!-- /tab -->
 							</div>
@@ -972,6 +939,7 @@
 <!-- /SECTION -->
 
 <?php include 'footer.php' ?>
+ 
 
 </body>
 

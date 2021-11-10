@@ -2,14 +2,33 @@
 require "config.php";
 require "models/db.php";
 require "models/product.php";
+require "models/protype.php";
 $products = new Product;
+$protype = new Protype;
+$getAllProtype = $protype->getAllProtype();
 $getAllProducts = $products->getAllProducts();
+
 $getNewPhone = $products->getNewPhone();
 $getNewLaptop = $products->getNewLaptop();
 $getNewHeadphone = $products->getNewHeadphone();
 $getNewWatch = $products->getNewWatch();
 $getNewTV = $products->getNewTV();
+if (isset($_GET['keyword'])) {
+    $keyword = ($_GET['keyword']);	
+};
+$perPage = 3;
+if (!isset($_GET['page'])) {
+	$_GET['page'] = 1;
+}
+$page = $_GET['page'];
+$total = count($products->getAllProducts());
+$url = $_SERVER['PHP_SELF'];
+
+
+
+
 //var_dump($getAllProducts);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +97,7 @@ $getNewTV = $products->getNewTV();
 					<!-- LOGO -->
 					<div class="col-md-3">
 						<div class="header-logo">
-							<a href="#" class="logo">
+							<a href="index.php" class="logo">
 								<img src="./img/logo.png" alt="">
 							</a>
 						</div>
@@ -88,13 +107,13 @@ $getNewTV = $products->getNewTV();
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
-							<form>
+							<form action="result.php" method="get" >
 								<select class="input-select">
 									<option value="0">All Categories</option>
 									<option value="1">Category 01</option>
 									<option value="1">Category 02</option>
 								</select>
-								<input class="input" placeholder="Search here">
+								<input type="text" name="keyword" class="input" placeholder="Search here">
 								<button class="search-btn">Search</button>
 							</form>
 						</div>
@@ -185,13 +204,10 @@ $getNewTV = $products->getNewTV();
 			<div id="responsive-nav">
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">Hot Deals</a></li>
-					<li><a href="#">Categories</a></li>
-					<li><a href="#">Laptops</a></li>
-					<li><a href="#">Smartphones</a></li>
-					<li><a href="#">Cameras</a></li>
-					<li><a href="#">Accessories</a></li>
+					<li class="active"><a href="index.php">Home</a></li>
+					<?php foreach ($protype->getAllProtype() as $value) { ?>
+                                        <li><a href="product.php?type_id=<?php echo $value['type_id'] ?>"><?php echo $value['type_name']?></a></li>
+                                    <?php } ?>
 				</ul>
 				<!-- /NAV -->
 			</div>

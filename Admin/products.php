@@ -43,12 +43,15 @@
                             <th style="width: 1%">
                                 ID
                             </th>
-                            <th style="width: 20%">
+                            <th style="width: 17%">
                                 Name
                             </th>
-                            <th style="width: 30%">
+                            <th style="width: 8%">
                                 Images
                             </th>
+                            <th style="width: 20%">
+                                Description
+                            </th >
                             <th>
                                 Price
                             </th>
@@ -78,8 +81,11 @@
                             <td><img src="../img/<?php echo $value['images'] ?>" style="width: 50px;" alt="" >
                             
                             </td>
+                            <td>
+                                <?php echo substr($value['description'],0,99)."[...]"  ?>
+                            </td>
                             <td class="project_progress">
-                            <?php echo number_format($value['price'])  ?>
+                            <?php echo number_format($value['price'])." VNĐ"  ?>
                             </td>
                             <td class="project-state">
                             <?php echo $value['manu_name'] ?>

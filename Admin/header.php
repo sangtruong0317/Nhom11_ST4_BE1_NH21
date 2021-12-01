@@ -1,7 +1,11 @@
 <?php require"config.php";
 require"model/db.php";
 require"model/product.php";
+require"model/manufacture.php";
+require"model/protype.php";
 $products=new Product();
+$manu=new Manufacture();
+$protype=new Protype();
 
  ?>
 <!DOCTYPE html>
@@ -244,9 +248,9 @@ $products=new Product();
               </li>
 
               <li class="nav-item">
-                <a href="pages/examples/project-add.html" class="nav-link">
+                <a href="addproduct.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Project Add</p>
+                  <p>Add Products</p>
                 </a>
               </li>
               <li class="nav-item">

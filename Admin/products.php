@@ -21,7 +21,7 @@
 
     <!-- Main content -->
     <section class="content">
-
+    <form action="delproduct.php" method="get">
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
@@ -99,12 +99,12 @@
                                     </i>
                                     View
                                 </a>
-                                <a class="btn btn-info btn-sm" href="#">
+                                <a class="btn btn-info btn-sm" href="editproduct.php">
                                     <i class="fas fa-pencil-alt">
                                     </i>
                                     Edit
                                 </a>
-                                <a class="btn btn-danger btn-sm" href="delproduct.php">
+                                <a  class="btn btn-danger btn-sm" href="delproduct.php?id=<?$value['id']?>">
                                     <i class="fas fa-trash">
                                     </i>
                                     Delete
@@ -118,7 +118,7 @@
             <!-- /.card-body -->
         </div>
         <!-- /.card -->
-
+    </form>
     </section>
     <!-- /.content -->
 </div>

@@ -26,4 +26,10 @@ Class Product extends db{
         $sql->bind_param("i", $id);
         return $sql->execute(); //return an object
     }
+    function updateProduct($name, $manu_id, $type_id, $price, $pro_image, $description, $feature, $created_at,$id){
+        $query = self::$connection->prepare("UPDATE products SET name = ?,manu_id = ?,type_id = ?,
+        price = ?,pro_image = ?,description = ?,feature = ?,created_at=? WHERE id = ? ");
+        $query->bind_param("siiissisi",$name,$manu_id,$type_id,$price,$pro_image,$description,$feature,$created_at,$id);
+        return $query->execute();
+    }
 }

@@ -4,10 +4,9 @@
 <?php
 $total = 0;
 if (isset($_GET['id']) || isset($_SESSION['last_id'])) {
-    if(isset($_GET['id'])){
+    if (isset($_GET['id'])) {
         $id = $_GET['id'];
-    }
-    else if (isset($_SESSION['last_id'])){
+    } else if (isset($_SESSION['last_id'])) {
         $id = $_SESSION['last_id'];
     }
     if (isset($_SESSION['cart'][$id])) {
@@ -18,7 +17,6 @@ if (isset($_GET['id']) || isset($_SESSION['last_id'])) {
     if (!isset($_SESSION['id'][$id])) {
         $_SESSION['id'][$id] = $id;
     }
-    
 }
 ?>
 
@@ -44,12 +42,12 @@ if (isset($_GET['id']) || isset($_SESSION['last_id'])) {
                             <tr>
                                 <?php if (isset($_SESSION['id']) && isset($_SESSION['cart'])) {
                                     foreach ($_SESSION['id'] as $numberID) {
-                                        foreach ($product->getProductsByID($numberID) as $value) { ?>
+                                        foreach ($products->getProductById($numberID) as $value) { ?>
                                             <td class="cart_product">
-                                                <a href=""><img style="width:150px;height;200px" src="images/<?php echo $value['pro_image'] ?>" alt="" width=110></a>
+                                                <a href=""><img style="width:150px;height;200px" src="./img/<?php echo $value['images'] ?>" alt="" width=110></a>
                                             </td>
                                             <td class="cart_description">
-                                                <h4><a href="detail.php?id=<?php echo $value['ID'] ?>"><?php echo $value['name'] ?></a></h4>
+                                                <h4><a href="detail.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></h4>
                                             </td>
                                             <td class="cart_price">
                                                 <p><?php echo number_format($value['price']) ?> VND</p>

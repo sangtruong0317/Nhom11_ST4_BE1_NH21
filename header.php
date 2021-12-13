@@ -2,9 +2,15 @@
 require "config.php";
 require "models/db.php";
 require "models/product.php";
+//require "models/manufacture.php";
 require "models/protype.php";
-$products = new Product;
-$protype = new Protype;
+
+
+$products=new Product();
+//$manu=new Manufacture();
+$protype=new Protype();
+$db = new Db;
+
 $getAllProtype = $protype->getAllProtype();
 $getAllProducts = $products->getAllProducts();
 

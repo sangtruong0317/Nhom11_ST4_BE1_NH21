@@ -1,9 +1,9 @@
-<?php require"config.php";
-require"model/db.php";
-require"model/product.php";
-require"model/manufacture.php";
-require"model/protype.php";
-require"model/user.php";
+<?php require "config.php";
+require "model/db.php";
+require "model/product.php";
+require "model/manufacture.php";
+require "model/protype.php";
+require "model/user.php";
 
 $products=new Product();
 $manu=new Manufacture();
@@ -201,6 +201,7 @@ $user = new User;
         </div>
         <div class="info">
           <a href="#" class="d-block">Alexander Pierce</a>
+          <li><a href="../login/logout.php"><i class="icon-key"></i>Đăng xuất</a></li>
         </div>
       </div>
 

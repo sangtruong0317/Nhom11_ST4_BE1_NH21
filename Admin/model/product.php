@@ -12,6 +12,17 @@ Class Product extends db{
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
+    function getProductID($id)
+    {
+        $sql = self::$connection->prepare("SELECT * 
+        FROM products,manufactures,protypes
+        WHERE products.manu_id = manufactures.manu_id and products.type_id = protypes.type_id AND products.id = ?");
+        $sql->bind_param("i",$id);
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
     public function addProduct($name,$manu_id,$type_id,$price,$image,$desc)
     {
         $sql = self::$connection->prepare("INSERT 
@@ -26,10 +37,10 @@ Class Product extends db{
         $sql->bind_param("i", $id);
         return $sql->execute(); //return an object
     }
-    function updateProduct($name, $manu_id, $type_id, $price, $pro_image, $description, $feature, $created_at,$id){
-        $query = self::$connection->prepare("UPDATE products SET name = ?,manu_id = ?,type_id = ?,
-        price = ?,pro_image = ?,description = ?,feature = ?,created_at=? WHERE id = ? ");
-        $query->bind_param("siiissisi",$name,$manu_id,$type_id,$price,$pro_image,$description,$feature,$created_at,$id);
+    function updateProduct($name, $manu_id, $type_id, $price, $images, $description,$id){
+        $query = self::$connection->prepare("UPDATE `products` SET `name` = ?,`manu_id` = ?,`type_id` = ?,
+        `price` = ?,`images` = ?,`description` = ? WHERE `id` = ? ");
+        $query->bind_param("siiissi",$name,$manu_id,$type_id,$price,$images,$description,$id);
         return $query->execute();
     }
 }

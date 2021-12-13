@@ -1,10 +1,20 @@
-<?php include"header.php" ?>
+<?php include "header.php";
+
+$id = "";
+$edit = "";
+if (isset($_GET['idProduct']) && $_GET['edit']) {
+    $id = $_GET['idProduct'];
+    $edit = $_GET['edit'];
+
+}
+require "processEdit.php";
+?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-    
+
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
@@ -19,10 +29,12 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
+    <?php if ($edit == "product") {
+    foreach ($products->getProductID($id) as $array) {
+        ?>
     <!-- Main content -->
     <section class="content">
-    <form action="edit.php" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-6">
           <div class="card card-primary">
@@ -35,73 +47,84 @@
                 </button>
               </div>
             </div>
-            
+
             <div class="card-body">
-          
+
               <div class="form-group">
                 <label for="inputName">Name</label>
-                <input type="text" id="inputName" class="form-control" value="">
-                
+                <input type="hidden" value="<?=$array['id']?> " name="id">
+                <input type="text" id="inputName" name="name" class="form-control" value="<?=$array['name']?>">
+
             </div>
-              
+
               <div class="form-group">
                 <label for="inputStatus">Manufacture</label>
-                <select id="inputStatus" class="form-control custom-select">
-                  <option disabled>Select one</option>
-                  <?php
-                  $getAllManu=$manu->getAllManu();
-                  foreach($getAllManu as $value){
-                   ?>
-                  <option value=<?php echo $value['manu_id'] ?>>
-                  <?php echo $value['manu_name'] ?></option>
-                  <?php } ?>
+                <select id="inputStatus" name="manu_id" class="form-control custom-select">
+                <?php
+foreach ($manu->getAllManu() as $value) {
+            if ($array['manu_name'] == $value['manu_name']) {
+                ?>
+                                        <option selected value="<?=$value['manu_id']?>"><?=$value['manu_name']?>
+                                        </option>
+
+                                        <?php } else {?>
+                                        <option value="<?=$value['manu_id']?>"><?=$value['manu_name']?></option>
+                                        <?php }}?>
                 </select>
               </div>
               <div class="form-group">
                 <label for="inputStatus">Protype</label>
-                <select id="inputStatus" class="form-control custom-select">
-                  <option disabled>Select one</option>
-                  <?php
-                  $getAllProtype=$protype->getAllProtype();
-                  foreach($getAllProtype as $value){
-                   ?>
-                  <option value=<?php echo $value['type_id'] ?>>
-                  <?php echo $value['type_name'] ?></option>
-                  <?php } ?>
+                <select id="inputStatus" name="type_id" class="form-control custom-select">
+                <?php foreach ($protype->getAllProtype() as $value) {
+            if ($value['type_name'] == $array['type_name']) {
+                ?>
+                                        <option selected value="<?=$value['type_id']?>"><?=$value['type_name']?>
+                                        </option>
+                                        <?php } else {?>
+                                        <option value="<?=$value['type_id']?>"><?=$value['type_name']?></option>
+                                        <?php }}?>
                 </select>
               </div>
               <div class="form-group">
                 <label >Price</label>
-                <input class="form-control" value="">
+                <input class="form-control" name="price" required value="<?=$array['price']?> ">
               </div>
               <div class="form-group">
                 <label for="inputDescription">Description</label>
-                <textarea id="inputDescription" class="form-control" rows="4"></textarea>
+                <textarea id="inputDescription" class="form-control" rows="4" required placeholder="Description"
+                                            name="description"><?=$array['description']?>></textarea>
               </div>
               <div class="form-group"  >
                 <label  for="inputProjectLeader">Image</label>
-                <input name="image" type="file" class="form-control">
+                <div class="controls">
+                                        <input type="file" name="fileUpload" id="fileUpload">
+                                        <img style="width:100px;height:100px"
+                                            src="<?="../img/" . $array['images']?>" alt="">
+                                    </div>
               </div>
-              
+
             </div>
-            
+
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
         </div>
-        
+
       </div>
       <div class="row">
         <div class="col-12">
           <a href="#" class="btn btn-secondary">Cancel</a>
-          <input type="submit" value="Save Changes" class="btn btn-success float-right">
+          <div class="form-actions">
+                                        <button type="submit" name="submitEditProduct" class="btn btn-success">Cập
+                                            nhật</button>
+                                    </div>
         </div>
       </div>
-      
-</form>
+
+</form><?php }}?>
 
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <?php include"footer.php" ?>
+  <?php include "footer.php"?>

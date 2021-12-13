@@ -3,9 +3,13 @@ require"model/db.php";
 require"model/product.php";
 require"model/manufacture.php";
 require"model/protype.php";
+require"model/user.php";
+
 $products=new Product();
 $manu=new Manufacture();
 $protype=new Protype();
+$db = new Db;
+$user = new User;
 
  ?>
 <!DOCTYPE html>

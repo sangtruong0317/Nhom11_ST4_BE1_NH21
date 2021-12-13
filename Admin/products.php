@@ -99,16 +99,18 @@
                                     </i>
                                     View
                                 </a>
-                                <a class="btn btn-info btn-sm" href="editproduct.php">
+                                <a class="btn btn-info btn-sm" href="editproduct.php?idProduct=<?= $value['id']?>&edit=product">
                                     <i class="fas fa-pencil-alt">
                                     </i>
                                     Edit
                                 </a>
-                                <a  class="btn btn-danger btn-sm" href="delproduct.php?id=<?$value['id']?>">
+                                
+                                <a  class="btn btn-danger btn-sm" href="delproduct.php?id=<?= $value['id']?>">
                                     <i class="fas fa-trash">
                                     </i>
                                     Delete
                                 </a>
+                               
                             </td>
                         </tr>
                    <?php }?>
